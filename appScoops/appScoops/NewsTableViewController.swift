@@ -11,7 +11,7 @@ import UIKit
 class NewsTableViewController: UITableViewController {
 
     // AppService conection
-    var client: MSClient = MSClient(applicationURL: URL(string:"http://scoops-balate.azurewebsites.net")!)
+    var client: MSClient = MSClient(applicationURL: URL(string:"http://balate-mbass.azurewebsites.net")!)
     
     // Create model
     var model: [String]? = []
@@ -24,11 +24,32 @@ class NewsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        addNews("Descubren una estrella similar a la estrella de la muerte")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Insert into table
+    func addNews(_ title: String) {
+    
+        //create table conection
+        let tableMS = client.table(withName: "News")
+        
+        //insert into table
+            tableMS.insert(["title" : title]) { (result, error) in
+            
+                //show result or error
+                if let _ = error {
+                    print(error)
+                    return
+                }
+                print(result)
+            }
+        
     }
 
     // MARK: - Table view data source
