@@ -60,7 +60,28 @@ class NewsTableViewController: UITableViewController {
         
         let predicate = NSPredicate( format: "title == 'Sucesos'" )
         
-        tableMS.read(with: predicate) { (result, error) in
+        tableMS.read {(results, error) in
+
+            //show result or error
+            if let _ = error {
+                print(error)
+                return
+            }
+        
+            if let items = results {
+                
+                for item in items.items! {
+                    self.model?.append(item as! [String : AnyObject])
+                 }
+                
+                DispatchQueue.main.async {
+                    
+              self.tableView.reloadData()
+            }
+        }
+
+        
+    /*    tableMS.read(with: predicate) { (result, error) in
         
             //show result or error
             if let _ = error {
@@ -78,7 +99,7 @@ class NewsTableViewController: UITableViewController {
                     
               self.tableView.reloadData()
             }
-        }
+        }*/
     
     }
     }
