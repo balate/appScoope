@@ -58,7 +58,7 @@ class NewsTableViewController: UITableViewController {
         //create table conection
         let tableMS = client.table(withName: "News")
         
-        let predicate = NSPredicate( format: "title == 'Sucesos'" )
+        //let predicate = NSPredicate( format: "title == 'Sucesos'" )
         
         tableMS.read {(results, error) in
 
@@ -72,59 +72,51 @@ class NewsTableViewController: UITableViewController {
                 
                 for item in items.items! {
                     self.model?.append(item as! [String : AnyObject])
-                 }
+                    }
                 
                 DispatchQueue.main.async {
                     
               self.tableView.reloadData()
+                }
             }
-        }
 
-        
-    /*    tableMS.read(with: predicate) { (result, error) in
-        
-            //show result or error
-            if let _ = error {
-                print(error)
-                return
-            }
-        
-            if let items = result {
-                
-                for item in items.items! {
-                    self.model?.append(item as! [String : AnyObject])
-                 }
-                
-                DispatchQueue.main.async {
-                    
-              self.tableView.reloadData()
-            }
-        }*/
-    
-    }
+   
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        if (model?.isEmpty)!{
+        
+            return 0
+        }
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if (model?.isEmpty)!{
+            
+            return 0
+        }
+        
+        return (model?.count)!
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NEWS", for: indexPath)
+        
+        let item = model?[indexPath.row]
 
-        // Configure the cell...
+        cell.textLabel?.text = item?["title"] as! String?
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
