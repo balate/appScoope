@@ -34,14 +34,42 @@ class NewsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func addNewNews(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Nueva Noticia", message: "Escribe la noticia", preferredStyle: .alert)
+        
+        
+        let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
+            let title = alert.textFields![0] as UITextField
+            let detailsNews = alert.textFields![1] as UITextField
+            
+            
+            self.addNews(title.text!, detailsNews: detailsNews.text!)
+            
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionOk)
+        alert.addAction(actionCancel)
+        alert.addTextField { (textField) in
+            
+            textField.placeholder = "Introduce titulo de la noticia"
+            
+        }
+        
+        alert.addTextField {(textfield2) in
+            textfield2.placeholder = "Introduce la noticia"
+        }
+        present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: - Insert into table
-    func addNews(_ title: String) {
+    func addNews(_ title: String, detailsNews: String) {
     
         //create table conection
         let tableMS = client.table(withName: "News")
         
         //insert into table
-            tableMS.insert(["title" : title, "detailsNews" : "Suegra aprende ha pronuciar croquetas"]) { (result, error) in
+            tableMS.insert(["title" : title, "detailsNews" : detailsNews]) { (result, error) in
             
                 //show result or error
                 if let _ = error {
