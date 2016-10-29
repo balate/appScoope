@@ -25,7 +25,7 @@ class NewsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        addNews("Descubren una estrella similar a la estrella de la muerte")
+        readAllItemsInTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,7 @@ class NewsTableViewController: UITableViewController {
         let tableMS = client.table(withName: "News")
         
         //insert into table
-            tableMS.insert(["title" : title]) { (result, error) in
+            tableMS.insert(["title" : title, "detailsNews" : "Suegra aprende ha pronuciar croquetas"]) { (result, error) in
             
                 //show result or error
                 if let _ = error {
@@ -50,6 +50,32 @@ class NewsTableViewController: UITableViewController {
                 print(result)
             }
         
+    }
+    
+    func readAllItemsInTable() {
+    
+        //create table conection
+        let tableMS = client.table(withName: "News")
+        
+        let predicate = NSPredicate( format: "title == 'Sucesos'" )
+        
+        tableMS.read(with: predicate) { (result, error) in
+        
+            //show result or error
+            if let _ = error {
+                print(error)
+                return
+            }
+        
+            if let items = result{
+            
+                print(items)
+                
+            }
+        
+        
+        }
+    
     }
 
     // MARK: - Table view data source
