@@ -14,7 +14,8 @@ class NewsTableViewController: UITableViewController {
     var client: MSClient = MSClient(applicationURL: URL(string:"http://balate-mbass.azurewebsites.net")!)
     
     // Create model
-    var model: [String]? = []
+    //var model: [String]? = []
+    var model: [Dictionary<String, AnyObject>]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,15 +68,19 @@ class NewsTableViewController: UITableViewController {
                 return
             }
         
-            if let items = result{
-            
-                print(items)
+            if let items = result {
                 
+                for item in items.items! {
+                    self.model?.append(item as! [String : AnyObject])
+                 }
+                
+                DispatchQueue.main.async {
+                    
+              self.tableView.reloadData()
             }
-        
-        
         }
     
+    }
     }
 
     // MARK: - Table view data source
