@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSi-Uw-WlD" id="wZ2-cQ-FMg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -36,10 +36,88 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="1fl-m1-W4Z" kind="show" identifier="detailsNews" id="bcH-gB-lSC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sY8-kr-i2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="139"/>
+            <point key="canvasLocation" x="1745" y="139"/>
+        </scene>
+        <!--Detail News View Controller-->
+        <scene sceneID="KaZ-Nq-IO8">
+            <objects>
+                <viewController id="1fl-m1-W4Z" customClass="DetailNewsViewController" customModule="appScoops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MXX-S6-2H4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zl4-cO-5U5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yaa-FE-F0B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7kN-zL-zC7">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-h5-pZ4">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4r-zV-caB">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="EId-0H-y0m"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-rK-Kd2">
+                                <frame key="frameInset" minX="16" minY="154" width="375" height="224"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-Yh-wq6" userLabel="detailNews">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7F-uo-Dbn">
+                                <frame key="frameInset" minX="16" height="44" maxX="-16" maxY="29"/>
+                                <items>
+                                    <barButtonItem title="Update" id="H0e-8u-jXi">
+                                        <connections>
+                                            <action selector="updateDetailsNews:" destination="1fl-m1-W4Z" id="gAV-2r-op2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zl4-cO-5U5" firstAttribute="top" secondItem="k7F-uo-Dbn" secondAttribute="bottom" id="Gtv-d9-vMf"/>
+                            <constraint firstItem="zl4-cO-5U5" firstAttribute="top" secondItem="q3D-rK-Kd2" secondAttribute="bottom" constant="289" id="Kiw-uw-u9n"/>
+                            <constraint firstItem="7kN-zL-zC7" firstAttribute="leading" secondItem="yaa-FE-F0B" secondAttribute="leading" id="RIW-A2-zPj"/>
+                            <constraint firstItem="k7F-uo-Dbn" firstAttribute="leading" secondItem="yaa-FE-F0B" secondAttribute="leading" id="ZxD-hM-H4q"/>
+                            <constraint firstItem="q3D-rK-Kd2" firstAttribute="top" secondItem="7kN-zL-zC7" secondAttribute="bottom" id="auf-VI-WjH"/>
+                            <constraint firstAttribute="trailing" secondItem="q3D-rK-Kd2" secondAttribute="trailing" id="fOR-U3-iSh"/>
+                            <constraint firstItem="q3D-rK-Kd2" firstAttribute="top" secondItem="yaa-FE-F0B" secondAttribute="top" constant="154" id="gJp-xa-zA2"/>
+                            <constraint firstAttribute="trailing" secondItem="k7F-uo-Dbn" secondAttribute="trailing" id="kCv-up-mS8"/>
+                            <constraint firstItem="7kN-zL-zC7" firstAttribute="top" secondItem="MXX-S6-2H4" secondAttribute="bottom" id="n6t-RL-pIz"/>
+                            <constraint firstAttribute="trailing" secondItem="7kN-zL-zC7" secondAttribute="trailing" id="uIW-LF-jJS"/>
+                            <constraint firstItem="q3D-rK-Kd2" firstAttribute="leading" secondItem="yaa-FE-F0B" secondAttribute="leading" id="uKq-Rr-Lv2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorLbl" destination="Xbg-h5-pZ4" id="xNz-ZN-DAE"/>
+                        <outlet property="detailNewsTxt" destination="gh8-Yh-wq6" id="U7h-L4-Qoj"/>
+                        <outlet property="titleLbl" destination="R4r-zV-caB" id="eJq-qk-YJ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdP-nL-fgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aoy-U3-b2B">

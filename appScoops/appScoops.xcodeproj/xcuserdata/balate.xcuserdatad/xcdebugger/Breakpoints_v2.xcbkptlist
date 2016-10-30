@@ -2,4 +2,128 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appScoops/DetailNewsViewController.swift"
+            timestampString = "499544685.209992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "DetailNewsViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appScoops/DetailNewsViewController.swift"
+            timestampString = "499544685.209992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "DetailNewsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appScoops.DetailNewsViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; appScoops.DetailNewsViewController"
+                  moduleName = "appScoops"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/balate/Desktop/MASTER%20KEEPCODING/MBAAS/MBBAS3edition/practica/appScoops/appScoops/DetailNewsViewController.swift"
+                  timestampString = "499546040.063423"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appScoops.DetailNewsViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;appScoops.DetailNewsViewController&gt;"
+                  moduleName = "appScoops"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/balate/Desktop/MASTER%20KEEPCODING/MBAAS/MBBAS3edition/practica/appScoops/appScoops/DetailNewsViewController.swift"
+                  timestampString = "499546040.066001"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appScoops/DetailNewsViewController.swift"
+            timestampString = "499543610.899097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "DetailNewsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appScoops.DetailNewsViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; appScoops.DetailNewsViewController"
+                  moduleName = "appScoops"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/balate/Desktop/MASTER%20KEEPCODING/MBAAS/MBBAS3edition/practica/appScoops/appScoops/DetailNewsViewController.swift"
+                  timestampString = "499546040.070821"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "133">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appScoops.DetailNewsViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;appScoops.DetailNewsViewController&gt;"
+                  moduleName = "appScoops"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/balate/Desktop/MASTER%20KEEPCODING/MBAAS/MBBAS3edition/practica/appScoops/appScoops/DetailNewsViewController.swift"
+                  timestampString = "499546040.073318"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "91">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

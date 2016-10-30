@@ -46,9 +46,10 @@ class NewsTableViewController: UITableViewController {
         let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
             let title = alert.textFields![0] as UITextField
             let detailsNews = alert.textFields![1] as UITextField
+            let author = alert.textFields![2] as UITextField
             
             
-            self.addNews(title.text!, detailsNews: detailsNews.text!)
+            self.addNews(title.text!, detailsNews: detailsNews.text!, author: author.text!)
             
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -63,25 +64,31 @@ class NewsTableViewController: UITableViewController {
         alert.addTextField {(textfield2) in
             textfield2.placeholder = "Introduce la noticia"
         }
+        
+        alert.addTextField {(textfield3) in
+            textfield3.placeholder = "Introduce el autor"
+        }
+
         present(alert, animated: true, completion: nil)
     }
     
     
     
     //MARK: - Insert into table
-    func addNews(_ title: String, detailsNews: String) {
+    func addNews(_ title: String, detailsNews: String, author:String) {
     
         //create table conection
         let tableMS = client.table(withName: "News")
         
         //insert into table
-            tableMS.insert(["title" : title, "detailsNews" : detailsNews]) { (result, error) in
+            tableMS.insert(["title" : title, "detailsNews" : detailsNews, "author" : author ]) { (result, error) in
             
                 //show result or error
                 if let _ = error {
                     print(error)
                     return
                 }
+                self.readAllItemsInTable()
                 print(result)
             }
         
@@ -188,6 +195,13 @@ class NewsTableViewController: UITableViewController {
         return true
     }
     */
+    
+    //change viewDetails
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = model?[indexPath.row]
+        
+        performSegue(withIdentifier: "detailsNews", sender: item)
+    }
 
     
     // Override to support editing the table view.
@@ -210,30 +224,22 @@ class NewsTableViewController: UITableViewController {
         }    
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+  
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "detailsNews" {
+        
+            let vc = segue.destination as? DetailNewsViewController
+            
+            vc?.client = client
+            vc?.model = sender as! AutoRecord
+        }
     }
-    */
+ 
 
 }
