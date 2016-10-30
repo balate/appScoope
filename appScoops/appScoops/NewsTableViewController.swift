@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias AutoRecord = Dictionary<String,AnyObject>
+
 class NewsTableViewController: UITableViewController {
 
     // AppService conection
@@ -19,6 +21,8 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "NOTICIAS"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,7 +38,7 @@ class NewsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //button add news
     @IBAction func addNewNews(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Nueva Noticia", message: "Escribe la noticia", preferredStyle: .alert)
         
@@ -62,6 +66,8 @@ class NewsTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    
     //MARK: - Insert into table
     func addNews(_ title: String, detailsNews: String) {
     
@@ -81,6 +87,30 @@ class NewsTableViewController: UITableViewController {
         
     }
     
+    
+   //MARK: - delete item into table
+    func deleteRecord(_ item:AutoRecord){
+        
+        //create reference with table
+        let tableMS = client.table(withName: "News")
+        
+        tableMS.delete(item) { (result, error )  in
+        
+            if let _ = error {
+            
+                print(error)
+                return
+        
+            }
+        
+            //refresh table
+            self.readAllItemsInTable()
+        }
+        
+        
+    }
+    
+    //show all items of table
     func readAllItemsInTable() {
     
         //create table conection
@@ -94,6 +124,11 @@ class NewsTableViewController: UITableViewController {
             if let _ = error {
                 print(error)
                 return
+            }
+            
+            if !((self.model?.isEmpty)!){
+            
+                self.model?.removeAll()
             }
         
             if let items = results {
@@ -154,17 +189,27 @@ class NewsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let item = self.model?[indexPath.row]
+            
+            self.deleteRecord(item!)
+            self.model?.remove(at: indexPath.row)
+            
+            
+            tableView.endUpdates()
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

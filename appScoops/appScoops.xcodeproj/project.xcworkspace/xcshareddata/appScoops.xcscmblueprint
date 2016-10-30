@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D31BBBEECBE7696E3502BCE1F69EE8137C58E6BE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8DA308C6F30F48A57D46534AC37CB14E05266801" : 9223372036854775807,
+    "D31BBBEECBE7696E3502BCE1F69EE8137C58E6BE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5DBE42EA-0E12-4A27-8DD4-06B402C43945",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8DA308C6F30F48A57D46534AC37CB14E05266801" : "",
+    "D31BBBEECBE7696E3502BCE1F69EE8137C58E6BE" : "practica\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "appScoops",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "appScoops\/appScoops.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/balate\/storageExplorer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8DA308C6F30F48A57D46534AC37CB14E05266801"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/balate\/appScoope.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D31BBBEECBE7696E3502BCE1F69EE8137C58E6BE"
+    }
+  ]
+}
